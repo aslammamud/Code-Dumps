@@ -1,0 +1,37 @@
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<div class="form-group">
+  <label class="text-dark h6 mt-4"><h6>Product Size</h6></label>
+  <table  style="margin-left: 15px" id="productsize">
+   <tr class="table-success">
+		<th class="pl-3">Size</th>
+		<th class="pl-3">Price</th>
+		<th><input class="btn btn-success" type="button" id="add" value="Add New"></th>
+	</tr>
+	<tr>
+		<td><input class="form-control mb-1 mt-1" type="text" placeholder="size or scale" name="size[]"></td>
+		<td><input class="form-control mb-1 mt-1" type="number" placeholder="price" name="price[]"></td>
+		
+	</tr>
+  </table>
+ </div>
+
+  
+  
+  <script>
+							
+	jQuery(document).ready(function(){
+	
+	var html = '<tr><td><input class="form-control mb-1" type="text" placeholder="size or scale" name="size[]"></td><td><input class="form-control mb-1" type="number" placeholder="price" name="price[]"></td></tr>';
+	 
+		
+			$('#add').click(function (e){
+			e.preventDefault(e);
+
+			$("#productsize").append(html);
+		   });
+		
+		
+	});
+</script>

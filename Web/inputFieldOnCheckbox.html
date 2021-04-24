@@ -1,0 +1,104 @@
+                <div class="form-group">
+                  <label class="text-dark h6 mt-4"><h6>Product Size</h6></label>
+                  <div  style="margin-left: 15px">
+                    <input type="checkbox" name="extrasmallSize" id="es" value="ES">
+                    <label for="es">Extra Small</label>
+                    <input type="number" id="extrasmallSizeValue" placeholder="Price TK" name="extrasmall">
+                  </div>
+                  <div  style="margin-left: 15px">
+                    <input type="checkbox" name="smallSize" id="s" value="S">
+                    <label for="s">Small</label>
+                    <input type="number" id="smallSizeValue" placeholder="Price TK" name="small">
+                  </div>
+                  <div  style="margin-left: 15px">
+                    <input type="checkbox" name="interest" id="m" value="M">
+                    <label for="m">Medium</label>
+                    <input type="number" id="mediumSizeValue" placeholder="Price TK" name="medium">
+                  </div>
+                  <div  style="margin-left: 15px">
+                    <input type="checkbox" name="interest"  id="l" value="L">
+                    <label for="l">Large</label>
+                    <input type="number" id="largeSizeValue" placeholder="Price TK" name="large">
+                  </div>
+                  
+                  <div  style="margin-left: 15px">
+                    <input type="checkbox" name="interest"  id="el" value="EL">
+                    <label for="el">Extra Large</label>
+                    <input type="number" id="extralargeSizeValue" placeholder="Price TK" name="extralarge">
+                  </div>
+
+                </div>
+                
+                
+                <script>
+                    var extrasmallCheckbox = document.querySelector('input[value="ES"]');
+                    var extrasmallSizeText = document.querySelector('input[id="extrasmallSizeValue"]');
+                    extrasmallSizeText.style.visibility = 'hidden';                     
+                    
+                    var smallCheckbox = document.querySelector('input[value="S"]');
+                    var smallSizeText = document.querySelector('input[id="smallSizeValue"]');
+                    smallSizeText.style.visibility = 'hidden';                    
+                    
+                    var mediumCheckbox = document.querySelector('input[value="M"]');
+                    var mediumSizeText = document.querySelector('input[id="mediumSizeValue"]');
+                    mediumSizeText.style.visibility = 'hidden';  
+                    
+                    var extralargeCheckbox = document.querySelector('input[value="EL"]');
+                    var extralargeSizeText = document.querySelector('input[id="extralargeSizeValue"]');
+                    extralargeSizeText.style.visibility = 'hidden';
+                    
+                    var largeCheckbox = document.querySelector('input[value="L"]');
+                    var largeSizeText = document.querySelector('input[id="largeSizeValue"]');
+                    largeSizeText.style.visibility = 'hidden';
+                    
+
+                    
+                    smallCheckbox.addEventListener('change', () => {
+                      if(smallCheckbox.checked) {
+                        smallSizeText.style.visibility = 'visible';
+                        smallSizeText.value = '';
+                      } else {
+                        smallSizeText.style.visibility = 'hidden';
+                      }
+                    });
+                                        
+                    extrasmallCheckbox.addEventListener('change', () => {
+                      if(extrasmallCheckbox.checked) {
+                        extrasmallSizeText.style.visibility = 'visible';
+                        extrasmallSizeText.value = '';
+                      } else {
+                        extrasmallSizeText.style.visibility = 'hidden';
+                      }
+                    });
+                    
+                    mediumCheckbox.addEventListener('change', () => {
+                      if(mediumCheckbox.checked) {
+                        mediumSizeText.style.visibility = 'visible';
+                        mediumSizeText.value = '';
+                      } else {
+                        mediumSizeText.style.visibility = 'hidden';
+                      }
+                    });
+                    
+
+                    largeCheckbox.addEventListener('change', () => {
+                      if(largeCheckbox.checked) {
+                        largeSizeText.style.visibility = 'visible';
+                        largeSizeText.value = '';
+                      } else {
+                        largeSizeText.style.visibility = 'hidden';
+                      }
+                    });                    
+                    
+                    
+                    extralargeCheckbox.addEventListener('change', () => {
+                      if(extralargeCheckbox.checked) {
+                        extralargeSizeText.style.visibility = 'visible';
+                        extralargeSizeText.value = '';
+                      } else {
+                        extralargeSizeText.style.visibility = 'hidden';
+                      }
+                    });
+                    
+                                        
+                </script>
