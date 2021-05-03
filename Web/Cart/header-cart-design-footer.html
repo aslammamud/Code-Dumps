@@ -1,0 +1,148 @@
+<!-- Header Cart Style CSS -->
+<style>
+span.cart-total {
+	background: #3cbf3e;
+	padding: 0 6px;
+	border: 0px;
+	position: relative;
+	font-size: 18px;
+	top: -22px;
+	left: 9px;
+	border-radius: 50%;
+	color: #fff;
+}
+a.cart.head-cart {
+	margin: 20px;
+	font-size: 30px;
+}
+		
+.cart {
+	font-size: 35px;
+	color: #8189a5 !important;
+}
+
+.cart .itm{
+	position: absolute;
+	height: 24px;
+	width: 24px;
+	position: absolute;
+	display: inline-block;
+	background: #3cbf3e;
+	background: -webkit-linear-gradient(to left,#1d2671,#3cbf3e);
+	background: linear-gradient(to left,#1d713a,#3cbf3e);
+	text-align: center;
+	line-height: 25px;
+	border-radius: 50%;
+	color: #fff;
+	left: 15px;
+	font-size: 14px;
+}
+</style>
+<!-- CSS END-->
+
+
+
+<li class="nav-item">
+	
+	<!-- Header Cart Code -->
+	<a href="#" class="cart head-cart"><span class="cart-total">0</span><i class="fa fa-shopping-cart"></i></a>
+	
+	
+</li>
+
+
+
+<!-- এটা বসাতে হবে পেজের যেখানে আমি  Add to Cart রাখবো -->
+
+<form class="form-submit">
+  <input type="hidden" class="product_id" value="<?php echo $product['id'] ?>">
+  <input type="hidden" class="product_quantity" value="1">
+  <input type="hidden" class="product_price" value="<?php echo $product['product_sale_price'] ?>">
+
+<button type="button" class="add-to-cart addItemBtn"><span> Add to Cart</span> </button>
+</form>
+
+
+
+
+<!--  অবশ্যই ফুটারে এজেক্স লিখার আগে jQuery এর  স্ক্রিপ্ট এড করে নিতে হবে  -->
+
+
+<!-- Footer AJAX CODE -->
+
+<script>
+jQuery(document).ready(function(){
+    
+// Send cart product details in the server
+
+$(".addItemBtn").click(function(e) {
+  e.preventDefault();
+  var $form = $(this).closest(".form-submit");
+  var product_id = $form.find(".product_id").val();
+  var product_price = $form.find(".product_price").val();
+  var product_quantity = $form.find(".product_quantity").val();
+
+  $.ajax({
+	url: 'cart-action.php',
+	method: 'post',
+	data: {
+	  product_id: product_id,
+	  product_price: product_price,
+	  product_quantity: product_quantity,
+	},
+	success: function(response) {
+	  $("#message").html(response);
+	  //window.scrollTo(0, 0);
+	  load_cart_item_number();
+	  load_return_cart_items();
+	}
+  });
+});
+
+// Load total no.of items added in the cart and display in the navbar
+
+load_cart_item_number();
+load_return_cart_items();
+
+function load_cart_item_number() {
+  $.ajax({
+	url: 'cart-action.php',
+	method: 'get',
+	data: {
+	  cartItem: "cart_item"
+	},
+	success: function(response) {
+	  $(".cart-total").html(response);
+	}
+  });
+}
+
+function load_return_cart_items() {
+  $.ajax({
+	url: 'cart-action.php',
+	method: 'get',
+	data: {
+	  returnitems: "returnitems"
+	},
+	success: function(response) {
+	  $("#cart-items-return").html(response);
+	}
+  });
+}
+
+
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
